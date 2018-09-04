@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_04_201815) do
+ActiveRecord::Schema.define(version: 2018_09_04_210850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "auditoriums", force: :cascade do |t|
-    t.integer "capacity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "movies", force: :cascade do |t|
     t.string "name"
@@ -31,7 +25,13 @@ ActiveRecord::Schema.define(version: 2018_09_04_201815) do
   create_table "showtimes", force: :cascade do |t|
     t.datetime "time"
     t.integer "movie_id"
-    t.integer "auditorium_id"
+    t.integer "theater_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "theaters", force: :cascade do |t|
+    t.integer "capacity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2018_09_04_201815) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.integer "credit_card"
+    t.bigint "credit_card"
     t.integer "cvv"
     t.datetime "expiration_date"
     t.datetime "created_at", null: false
