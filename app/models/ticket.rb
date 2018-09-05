@@ -1,4 +1,4 @@
 class Ticket < ApplicationRecord
-  belongs_to :user
-  belongs_to :showtime
+  belongs_to :user, optional: true
+  belongs_to :showtime, optional: true
 end
