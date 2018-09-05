@@ -14,8 +14,11 @@ class Api::TheatersController < ApplicationController
     @theater = Theater.new(
       capacity: params[:capacity]
       )
-    @theater.save
-    render "show.json.jbuilder"
+    if @theater.save
+      render "show.json.jbuilder"
+    else
+      render json: {errors: @theater.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def update

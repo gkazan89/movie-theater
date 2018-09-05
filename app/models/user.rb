@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :credit_card, presence: true, numericality: true, length: {is: 16}
   validates :cvv, presence: true, numericality: true, length: {in: 3..4}
-  # may be prettier way to write this validation
+  # there's probably a prettier way to write this validation
   validates :expiration_date, presence: true,
     :if => :expiration_date_cannot_be_past?
 
