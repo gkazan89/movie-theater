@@ -5,6 +5,11 @@ class Api::TicketsController < ApplicationController
     render "index.json.jbuilder"
   end
 
+  def show
+    @ticket = Ticket.find_by(id: params[:id])
+    render "show.json.jbuilder"
+  end
+
   def create 
     @ticket = Ticket.new(
       user_id: params[:user_id],
@@ -14,6 +19,4 @@ class Api::TicketsController < ApplicationController
     @ticket.save
     render "show.json.jbuilder"
   end
-
-
 end

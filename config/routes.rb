@@ -20,5 +20,6 @@ Rails.application.routes.draw do
 
     get "/tickets" => "tickets#index"
     post "/tickets" => "tickets#create"
+    get "/tickets/:id" => "tickets#show"
   end
 end
