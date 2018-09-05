@@ -10,7 +10,7 @@ class Api::ShowtimesController < ApplicationController
       # will switch this to params
       time: Time.new(2018,9,1,18,00,00,"-05:00"),
       movie_id: params[:movie_id],
-      theater_id: params[:theater_id]
+      theater_id: params[:theater_id],
       )
     @showtime.save
     # need to check to ensure there's no overlap with a movie already there
