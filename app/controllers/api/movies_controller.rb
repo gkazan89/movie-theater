@@ -11,8 +11,11 @@ class Api::MoviesController < ApplicationController
       name: params[:name],
       runtime: params[:runtime],
       )
-    @movie.save
-    render "show.json.jbuilder"
+    if @movie.save
+      render "show.json.jbuilder"
+    else
+      render json: {errors: @movie.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def delete

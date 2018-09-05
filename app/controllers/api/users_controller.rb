@@ -9,7 +9,10 @@ class Api::UsersController < ApplicationController
       cvv: params[:cvv],
       expiration_date: params[:expiration_date]
       )
-    @user.save
-    render "show.json.jbuilder"
+    if @user.save
+      render "show.json.jbuilder"
+    else
+      render json: {errors: @user.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 end

@@ -30,6 +30,4 @@ class Api::TheatersController < ApplicationController
     @theater.destroy
     render json: {message: "Theater destroyed"}
   end
-
-
 end
