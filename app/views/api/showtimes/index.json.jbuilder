@@ -4,6 +4,7 @@ json.array! @showtimes.each do |showtime|
   json.time showtime.time
   json.movie showtime.movie.name
   json.theater showtime.theater_id
+  json.capacity showtime.theater.capacity
   json.buyTicket false
-  json.soldOut false
+  json.ticketSold 0
 end

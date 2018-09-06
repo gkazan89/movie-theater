@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+
+  # resources :user2s do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post "/user2s" => "user2s#create"
+  # end
+  
   namespace :api do
     post "/users" => "users#create"
     # this non-restful route is for retrieving user id 

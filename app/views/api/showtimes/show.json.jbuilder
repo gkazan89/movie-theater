@@ -3,4 +3,4 @@ json.time @showtime.time
 json.movie @showtime.movie.name
 json.theater @showtime.theater_id
 json.buyTicket false
-json.soldOut false
+json.ticketSold 0
