@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     get "/showtimes" => "showtimes#index"
     post "/showtimes" => "showtimes#create"
     patch "/showtimes/:id" => "showtimes#update"
+    patch "/showtimes/buy/:id" => "showtimes#buy"
     delete "/showtimes/:id" => "showtimes#delete"
 
     get "/tickets" => "tickets#index"

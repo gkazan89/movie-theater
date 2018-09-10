@@ -22,8 +22,21 @@ class Api::ShowtimesController < ApplicationController
     @showtime.time = params[:time] || @showtime.time
     @showtime.movie_id = params[:movie_id] || @showtime.movie_id
     @showtime.theater_id = params[:theater_id] || @showtime.theater_id
+    @showtime.openSeats = params[:openSeats] || @showtime.openSeats
     @showtime.save
     render "show.json.jbuilder" 
+  end
+
+  # could include this in the model as well
+  def buy
+    @showtime = Showtime.find_by(id: params[:id])
+    if @showtime.openSeats > 0
+      @showtime.openSeats -= 1
+    else
+      @showtime.openSeats == 0
+    end
+    @showtime.save
+    render "show.json.jbuilder"
   end
 
   def delete
