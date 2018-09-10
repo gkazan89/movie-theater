@@ -12,9 +12,9 @@ class Api::TicketsController < ApplicationController
 
   def create 
     @ticket = Ticket.new(
-      user_id: params[:user_id],
+      email: "test@email.com",
       showtime_id: params[:showtime_id],
-      seat: params[:seat]
+      seat: 1
       )
     @ticket.save
     render "show.json.jbuilder"
