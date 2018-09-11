@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
       email: params[:email],
       credit_card: params[:credit_card],
       cvv: params[:cvv],
-      expiration_date: params[:expiration_date]
+      expiration_date: "2020-09-04 20:49:33.050726"
       )
     if @user.save
       render "show.json.jbuilder"
