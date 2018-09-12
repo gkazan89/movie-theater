@@ -180,8 +180,14 @@ def buy
 end
 ```
 
-Additionally, I would also want to spice up the frontend with some pretty CSS.
+Also, the working user link is "TEST". Ideally, I would change all the links at the top to properly reflect their specific page and configure the production server to properly display all the data I've created (showtimes, tickets, etc.) from my machine.
 
-CONCLUSION
+Additionally, I would also spice up the frontend with some pretty CSS.
+
+###CONCLUSION
 
 Overall, I enjoyed taking on this coding challenge. It was extremely beneficial for me to review everything from the past few months of classes; especially database migrations, JSON partials, and working with VueJS since I didn't fully understand them initially.
+
+I look forward to the day when it's easier for me to properly deploy a functioning app on Heroku. Guess we'll get back to the drawing board!
+
+
