@@ -184,7 +184,7 @@ Also, the working user link is "TEST". Ideally, I would change all the links at 
 
 Additionally, I would also spice up the frontend with some pretty CSS.
 
-###CONCLUSION
+### CONCLUSION
 
 Overall, I enjoyed taking on this coding challenge. It was extremely beneficial for me to review everything from the past few months of classes; especially database migrations, JSON partials, and working with VueJS since I didn't fully understand them initially.
 
