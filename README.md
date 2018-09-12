@@ -24,13 +24,19 @@ Conclusion
 
 "This'll be a walk-in-the-park!" I arrogantly thought to myself after reading the challenge prompt, "I can definitely make all of these actions into a beautiful Movie Theater App! Even though I'm working on my capstone project, I'll whip through this coding challenge before giving my presentation in a few days!"
 
-Little did I know, this project would test everything I've learned from Actualize the past three months and be more difficult and time consuming than my previously overconfident ego imagined. 13 days and well-over six hours of coding later, our app was complete.
+Little did I know, this project would test everything I've learned from Actualize the past three months and be more difficult and time consuming than my previously overconfident ego imagined.
 
 ### I. Saving Private Ryan's data in the backend
 
 At Actualize, I was taught to always begin a new project by modeling the database schema on an Excel document. It helps to visualize how all the data connects in order to ensure everything saves in the database correctly, especially with has many/belongs to relationships. Mistakes here could spell trouble later, so after modeling the relationships with fake data, I was ready to start coding.
 
-**SCREENSHOT OF EXCEL DOCUMENT**
+![sheet1](public/sheet1.png)
+
+![sheet2](public/sheet2.png)
+
+![sheet3](public/sheet3.png)
+
+![sheet4](public/sheet4.png)
 
 ### II. A View to A Controller, Model, and Route
 
@@ -115,21 +121,21 @@ If coding is The Wizard of Oz, error messages are the Yellow Brick Road. Like Do
 
 You know what never gets old? Figuring out an issue on your own, especially after looking it up on Stackoverflow. I dug myself out of a jam a few times on the backend and felt ready to do the same with e-mail functionality. How hard can it be to look something up, read the docs, and successfully implement it?
 
-**_screenshot of rails email docs_**
+![railsdocs](public/railsdocs.png)
 
 Well shoot, the code from the rails docs weren't working on my end.
 
-**_aspiringwebdev.com screenshot_**
+![awd](public/awd.png)
 
 Trying with a mailchimp account yielded no luck either.
 
-**\*medium.com screenshot\*\***
+![medium](public/medium.png)
 
 Unfortunately, this well-written medium post on the subject also failed to properly send the e-mail.
 
 After some serious error-message deciphering, I could get the e-mail model to save in the database, however, the e-mail failed to send from both, a mailchimp account and my personal e-mail.
 
-**_screenshot from postico_**
+![postico](public/postico.png)
 
 While I couldn't get the message to send, I at least had these two takeaways:
 
@@ -155,8 +161,27 @@ json.seat ticket.seat
 
 Now the \_model file ensures I only have to change JSON views once. #DRY
 
+After some additional tinkering, I was able to get the buy tickets button to successfully link up to the backend.
+
+I was also able to deploy part of the app on heroku, however, since I am rather inexperienced in this domain, it doesn't work the way I intended. If given the opportunity, I would be more than happy to demonstrate the missing heroku functionality on my own machine. It's not as bad as it looks!
+
+I also devised a method to keep track of available seats in order to properly display "SOLD OUT" and prevent a user from buying a ticket. The code is below. If given more time, I would properly implement this method in the app.
+
+```
+def buy
+  @showtime = Showtime.find_by(id: params[:id])
+  if @showtime.openSeats > 0
+    @showtime.openSeats -= 1
+  else
+    @showtime.openSeats == 0
+  end
+  @showtime.save
+  render "show.json.jbuilder"
+end
+```
+
+Additionally, I would also want to spice up the frontend with some pretty CSS.
+
 CONCLUSION
--enjoyed the project
--applied everything from class
--understand concepts we didn't initially grasp
--I know someone who may be interested in using this app (moviepass)
+
+Overall, I enjoyed taking on this coding challenge. It was extremely beneficial for me to review everything from the past few months of classes; especially database migrations, JSON partials, and working with VueJS since I didn't fully understand them initially.
