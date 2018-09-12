@@ -7,14 +7,12 @@ class Api::ShowtimesController < ApplicationController
 
   def create
     @showtime = Showtime.new(
-      # will switch this to params
-      time: Time.new(2018,9,1,18,00,00,"-05:00"),
+      time: params[:time],
       movie_id: params[:movie_id],
       theater_id: params[:theater_id],
       openSeats: params[:openSeats]
       )
     @showtime.save
-    # need to check to ensure there's no overlap with a movie already there
     render "show.json.jbuilder"
   end
 
